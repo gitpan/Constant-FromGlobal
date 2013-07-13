@@ -1,7 +1,7 @@
-lib/Constant/FromGlobal.pm
+Changes
+MANIFEST
 Makefile.PL
-MANIFEST			This list of files
-MANIFEST.SKIP
+lib/Constant/FromGlobal.pm
 t/01_basic.t
-META.yml                                 Module meta-data (added by MakeMaker)
-SIGNATURE                                Public-key signature (added by MakeMaker)
+META.yml                                 Module YAML meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)
