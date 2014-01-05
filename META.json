@@ -4,7 +4,7 @@
       "unknown"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.68, CPAN::Meta::Converter version 2.131560",
+   "generated_by" : "ExtUtils::MakeMaker version 6.82, CPAN::Meta::Converter version 2.132830",
    "license" : [
       "perl_5"
    ],
@@ -32,9 +32,12 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
             "Data::OptList" : "0",
             "Test::More" : "0.88",
-            "constant" : "0"
+            "constant" : "0",
+            "perl" : "5.008",
+            "warnings" : "0"
          }
       }
    },
@@ -44,5 +47,5 @@
          "url" : "https://github.com/neilbowers/constant-fromglobal"
       }
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }
