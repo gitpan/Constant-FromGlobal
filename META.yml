@@ -1,29 +1,27 @@
 ---
-abstract: unknown
+abstract: 'declare constant(s) with value from global or environment variable'
 author:
-  - unknown
+  - 'Neil Bowers <neil@bowers.com>'
 build_requires:
-  ExtUtils::MakeMaker: 0
+  Test::More: 0
 configure_requires:
-  ExtUtils::MakeMaker: 0
-dynamic_config: 1
-generated_by: 'ExtUtils::MakeMaker version 6.82, CPAN::Meta::Converter version 2.132830'
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Constant-FromGlobal
-no_index:
-  directory:
-    - t
-    - inc
 requires:
   Carp: 0
   Data::OptList: 0
-  Test::More: 0.88
+  Scalar::Util: 0
   constant: 0
-  perl: 5.008
+  perl: v5.8.0
+  strict: 0
   warnings: 0
 resources:
-  repository: https://github.com/neilbowers/constant-fromglobal
-version: 0.04
+  homepage: https://github.com/neilbowers/constant-fromglobal
+  repository: https://github.com/neilbowers/constant-fromglobal.git
+version: 0.05

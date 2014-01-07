@@ -1,0 +1,13 @@
+
+
+This archive contains the distribution Constant-FromGlobal,
+version 0.05:
+
+  declare constant(s) with value from global or environment variable
+
+This software is copyright (c) 2009 by Yuval Kogman.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+

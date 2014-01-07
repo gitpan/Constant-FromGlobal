@@ -1,38 +1,63 @@
+
 use strict;
+use warnings;
 
-use ExtUtils::MakeMaker;
+use 5.008000;
 
-require 5.006;
+use ExtUtils::MakeMaker 6.30;
 
-my $mm_ver = $ExtUtils::MakeMaker::VERSION;
-if ($mm_ver =~ /_/) { # dev version
-    $mm_ver = eval $mm_ver;
-    die $@ if $@;
+
+
+my %WriteMakefileArgs = (
+  "ABSTRACT" => "declare constant(s) with value from global or environment variable",
+  "AUTHOR" => "Neil Bowers <neil\@bowers.com>",
+  "BUILD_REQUIRES" => {},
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
+  },
+  "DISTNAME" => "Constant-FromGlobal",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Constant::FromGlobal",
+  "PREREQ_PM" => {
+    "Carp" => 0,
+    "Data::OptList" => 0,
+    "Scalar::Util" => 0,
+    "constant" => 0,
+    "strict" => 0,
+    "warnings" => 0
+  },
+  "TEST_REQUIRES" => {
+    "Test::More" => 0
+  },
+  "VERSION" => "0.05",
+  "test" => {
+    "TESTS" => "t/*.t"
+  }
+);
+
+
+my %FallbackPrereqs = (
+  "Carp" => 0,
+  "Data::OptList" => 0,
+  "Scalar::Util" => 0,
+  "Test::More" => 0,
+  "constant" => 0,
+  "strict" => 0,
+  "warnings" => 0
+);
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  delete $WriteMakefileArgs{TEST_REQUIRES};
+  delete $WriteMakefileArgs{BUILD_REQUIRES};
+  $WriteMakefileArgs{PREREQ_PM} = \%FallbackPrereqs;
 }
 
-WriteMakefile(
-	NAME         => 'Constant::FromGlobal',
-	VERSION_FROM => 'lib/Constant/FromGlobal.pm',
-	INSTALLDIRS  => 'site',
-	PL_FILES     => { },
-	PREREQ_PM    => {
-		'Test::More' => 0.88,
-		'Data::OptList' => 0,
-		'constant'      => 0,
-        'Carp'          => 0,
-        'constant'      => 0,
-        'warnings'      => 0,
-	},
-    META_MERGE => {
-        resources => {
-            repository => 'https://github.com/neilbowers/constant-fromglobal',
-        },
-    },
-    LICENSE      => 'perl',
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
 
-    ($mm_ver >= 6.48
-        ? (MIN_PERL_VERSION => 5.008)
-        : ()
-    ),
+WriteMakefile(%WriteMakefileArgs);
 
-);
+
+
