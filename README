@@ -1,7 +1,7 @@
 
 
 This archive contains the distribution Constant-FromGlobal,
-version 0.06:
+version 0.07:
 
   declare constant(s) with value from global or environment variable
 
